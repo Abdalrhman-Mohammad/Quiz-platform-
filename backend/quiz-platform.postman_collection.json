@@ -1,0 +1,243 @@
+{
+	"info": {
+		"_postman_id": "07f1db98-8b35-48b9-8aa5-1863515f62a0",
+		"name": "quiz-platform",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32857100"
+	},
+	"item": [
+		{
+			"name": "create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"janem\",\n    \"email\":\"f@f.com\",\n    \"password\":\"aA11!!\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/user/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"f@f.com\",\n    \"password\":\"aA11!!\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/user/login",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add new quiz",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\":\"mid c++\",\n    \"subjectId\":\"1234\",\n    \"start_time\":\"2024-06-01 12:00:00\",\n    \"end_time\":\"2024-06-02 12:00:00\"\n\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/quizzes",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"quizzes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all quizzes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/quizzes/[SubjectID]",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"quizzes",
+						"[SubjectID]"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add new question",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\":\"What is the name of black color?\",\n    \"type\":\"MCQ\",\n    \"quizId\":\"7dfbdb48-bef6-4d4e-8244-54bd794fd814\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/quizzes/question",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"quizzes",
+						"question"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all questions of specific quiz",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\":\"c++\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/quizzes/question/7dfbdb48-bef6-4d4e-8244-54bd794fd814",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"quizzes",
+						"question",
+						"7dfbdb48-bef6-4d4e-8244-54bd794fd814"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "adding full quiz",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\n     {\n        \"title\": \"mid c++\",\n        \"subjectId\":\"1234\",\n        \"start_time\": \"2024-06-01 09:00:00\",\n        \"end_time\": \"2024-06-02 09:10:00\",\n        \"questions\": [\n            {\n                \"text\": \"What is the name of black color?\",\n                \"type\": \"MCQ\",\n                \"answers\":[\n                    {\"content\":\"grey\"},\n                    {\"content\":\"black\"},\n                    {\"content\":\"red\"}\n                ],\n                \"correct_answer\":\"1\"\n            },\n            {\n                \"text\": \"What is the name of lion?\",\n                \"type\": \"MCQ\",\n                \"answers\":[\n                    {\"content\":\"elephant\"},\n                    {\"content\":\"cat\"},\n                    {\"content\":\"dog\"},\n                    {\"content\":\"lion\"}\n                ],\n                \"correct_answer\": \"3\"\n            }\n        ]\n    }\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/quiz/",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"quiz",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get full quiz",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/quiz/80767b40-0d6c-4598-befd-abe130b82bdb",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"quiz",
+						"80767b40-0d6c-4598-befd-abe130b82bdb"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
